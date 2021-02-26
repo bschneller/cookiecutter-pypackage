@@ -27,7 +27,7 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 init: ## Create new virtual environment with dependencies installed.
-	@python3.6 -m venv venv
+	@python3 -m venv venv
 	@./venv/bin/python3 -m pip install -U pip==20.3.3
 	@./venv/bin/python3 -m pip install -r requirements/requirements.dev.txt
 	@./venv/bin/python3 -m pip install -r requirements/requirements.txt
