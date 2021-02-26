@@ -29,7 +29,7 @@ help:
 init: ## Create new virtual environment with dependencies installed.
 	@python3 -m venv venv
 	@./venv/bin/python3 -m pip install -U pip==20.3.3
-	@./venv/bin/python3 -m pip install -r requirements/requirements.dev.txt
+	@./venv/bin/python3 -m pip install -r requirements/requirements-dev.txt
 	@./venv/bin/python3 -m pip install -r requirements/requirements.txt
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
