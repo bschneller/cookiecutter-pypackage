@@ -26,6 +26,12 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+init: ## Create new virtual environment with dependencies installed.
+	@python3.6 -m venv venv
+	@./venv/bin/python3 -m pip install -U pip==20.3.3
+	@./venv/bin/python3 -m pip install -r requirements/requirements.dev.txt
+	@./venv/bin/python3 -m pip install -r requirements/requirements.txt
+
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
 clean-build: ## remove build artifacts
@@ -46,6 +52,8 @@ clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
+
+update: clean init
 
 lint: ## check style with flake8
 	flake8 {{ cookiecutter.project_slug }} tests
