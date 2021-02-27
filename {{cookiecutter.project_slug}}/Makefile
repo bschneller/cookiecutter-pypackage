@@ -55,6 +55,9 @@ clean-test: ## remove test and coverage artifacts
 
 update: clean init
 
+format:
+	black {{ cookiecutter.project_slug }} tests
+
 lint: ## check style with flake8
 	flake8 {{ cookiecutter.project_slug }} tests
 
